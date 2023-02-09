@@ -1,9 +1,9 @@
 export function verifyEmail(email: string): null | string {
   if (email.trim().length === 0) return 'Email is empty'
   if (
-    !email.match(
+    email.match(
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-    )
+    ) === null
   )
     return 'Invalid email address'
   return null

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useServerHead } from '@unhead/vue';
-import { sleep } from '~~/server/utils/helpers/sleep';
+import { useServerHead } from '@unhead/vue'
+import { sleep } from '~~/server/utils/helpers/sleep'
 import { TypedObj } from '~~/server/utils/helpers/typedObj'
 
 useServerHead({
@@ -13,7 +13,6 @@ useServerHead({
 const user = useFirebaseUser()
 
 watch(user, async (currentUser) => {
-
   if (currentUser !== null) {
     await sleep(1000)
     return navigateTo('/')
@@ -42,9 +41,9 @@ async function onSubmit() {
     verifyPassword(credentials.value.password) ?? undefined
 
   if (
-    !credentials.value.email.match(
+    credentials.value.email.match(
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-    )
+    ) === null
   )
     errors.email = 'Invalid email address'
 
