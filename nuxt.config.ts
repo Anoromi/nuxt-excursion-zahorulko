@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   nitro: {
-    preset: 'firebase',
+    preset: 'vercel',
     compressPublicAssets: true,
     minify: true,
   },
