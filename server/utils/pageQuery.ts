@@ -45,26 +45,37 @@ export function applySearchQuery(
   data: PageQueryData,
 ): FirebaseFirestore.Query {
   if (data.name !== undefined && data.name!.length > 0)
-    query = query.where('title' satisfies ShopItemSelector, '==', data.name)
+    query = query.where(
+      'title' satisfies ShopItemSelector,
+      '==',
+      data.name,
+    )
   else {
     if (data.type !== undefined)
-      query = query.where('type' satisfies ShopItemSelector, '==', data.type)
+      query = query.where(
+        'type' satisfies ShopItemSelector,
+        '==',
+        data.type,
+      )
     if (data.promotion !== undefined)
       query = query.where(
         'promotion' satisfies ShopItemSelector,
         'array-contains-any',
         data.promotion,
       )
-    if (data.sortBy === 'price')
-      query = query.orderBy(
-        'price.normal' satisfies ShopItemSelector,
-        data.direction ?? 'desc',
-      )
-    else if (data.sortBy === 'popularity') {
-      query = query.orderBy(
-        'popularity' satisfies ShopItemSelector,
-        data.direction ?? 'desc',
-      )
+    switch (data.sortBy) {
+      case SortOptions.Popularity:
+        query = query.orderBy(
+          'popularity' satisfies ShopItemSelector,
+          data.direction ?? 'desc',
+        )
+        break
+      case SortOptions.Price:
+        query = query.orderBy(
+          'price.normal' satisfies ShopItemSelector,
+          data.direction ?? 'desc',
+        )
+        break
     }
   }
   return query
