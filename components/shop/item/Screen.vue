@@ -69,6 +69,7 @@ const loadingExtra = computed(
       v-else
       :src="imageUrl(data!.photo.id, 320, 200)"
       class="aspect-[16/10] w-full rounded-lg sm:hidden"
+      alt="main image"
     />
 
     <div>
@@ -113,7 +114,6 @@ const loadingExtra = computed(
         <Placeholder
           v-if="loadingExtra"
           class="mt-2 h-36 w-72 text-lg"
-          text="hello there"
         />
         <p class="text-lg" v-else>
           {{ extraData!.description.full }}

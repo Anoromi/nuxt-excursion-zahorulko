@@ -11,7 +11,6 @@ defineEmits<{
       src="/ansi-login.webp"
       alt="Background image"
       class="bottom-0 hidden select-none sm:fixed sm:block"
-      loading="lazy"
       draggable="false"
     />
     <form

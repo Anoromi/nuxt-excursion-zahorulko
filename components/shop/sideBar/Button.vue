@@ -8,7 +8,7 @@ defineEmits<{
 
 <template>
   <Transition name="slide">
-    <LazyShopSideBar
+    <ShopSideBar
       v-if="opened"
       @close="opened = false"
       @apply-filter="$emit('applyFilter')"
