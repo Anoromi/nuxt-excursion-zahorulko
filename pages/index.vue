@@ -27,11 +27,10 @@ function scrollGallery(x: number) {
     behavior: 'smooth',
   })
 }
-
 </script>
 
 <template>
-  <div
+  <article
     class="min-h-full w-full bg-surface3-light dark:bg-surface3-dark"
   >
     <section
@@ -132,5 +131,5 @@ function scrollGallery(x: number) {
         </div>
       </div>
     </section>
-  </div>
+  </article>
 </template>

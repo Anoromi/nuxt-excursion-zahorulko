@@ -4,7 +4,7 @@ defineEmits<{
 }>()
 </script>
 <template>
-  <div
+  <article
     class="flex w-full content-center items-center"
   >
     <img
@@ -35,5 +35,5 @@ defineEmits<{
       </div>
       <slot name="additional" />
     </form>
-  </div>
+  </article>
 </template>

@@ -28,7 +28,7 @@ onMounted(async () => {
   <Head>
     <Style src="leaflet/dist/leaflet.css"></Style>
   </Head>
-  <div class="mx-4 h-full w-full text-center sm:text-start scroll-auto pt-7 sm:mx-[15%]">
+  <article class="mx-4 h-full w-full text-center sm:text-start scroll-auto pt-7 sm:mx-[15%]">
     <TextTitle> Our team </TextTitle>
     <dl class="my-4">
       <dt>
@@ -60,7 +60,7 @@ onMounted(async () => {
       ref="mapDiv"
       class="aspect-video w-full sm:w-[500px]"
     ></div>
-  </div>
+  </article>
 </template>
 
 <style scoped lang="postcss">

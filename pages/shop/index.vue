@@ -68,7 +68,7 @@ const selectedItem = ref(null as ShopItemData | null)
 </script>
 
 <template>
-  <div ref="wrapper" class="w-full">
+  <article ref="wrapper" class="w-full">
     <ShopSideBarButton @apply-filter="updateQuery"></ShopSideBarButton>
     <ShopItemCards
       :page-data="pageData"
@@ -90,8 +90,8 @@ const selectedItem = ref(null as ShopItemData | null)
         {{ loadingData ? 'loading' : 'more' }}
       </button>
     </div>
-    <div class="pb-10" />
-  </div>
+    <div class="pb-10"></div>
+  </article>
   <Teleport to="body" v-if="selectedItem !== null">
     <Dialog>
       <div class="flex h-full w-full flex-col">

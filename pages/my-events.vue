@@ -43,14 +43,16 @@ const eventLoader = async (start: Dayjs, end: Dayjs) => {
 </script>
 
 <template>
-  <Calendar
-    :data-loader="eventLoader"
-    v-slot="{ event, key }"
-  >
-    <MyEventsCard
-      :key="key"
-      :event="(event as UserCalendarEvent)"
+  <article>
+    <Calendar
+      :data-loader="eventLoader"
+      v-slot="{ event, key }"
     >
-    </MyEventsCard>
-  </Calendar>
+      <MyEventsCard
+        :key="key"
+        :event="(event as UserCalendarEvent)"
+      >
+      </MyEventsCard>
+    </Calendar>
+  </article>
 </template>

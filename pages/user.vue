@@ -19,7 +19,7 @@ async function logOut() {
 </script>
 
 <template>
-  <div class="mx-5 pt-8 sm:mx-[15%]">
+  <article class="mx-5 pt-8 sm:mx-[15%]">
     <TextTitle> User data </TextTitle>
     <div class="mt-4 flex flex-col gap-x-8 sm:flex-row">
       <div class="flex flex-col items-center">
@@ -39,7 +39,7 @@ async function logOut() {
         <dd class="break-all">{{ user?.uid }}</dd>
       </dl>
     </div>
-  </div>
+  </article>
 </template>
 
 <style scoped lang="postcss">

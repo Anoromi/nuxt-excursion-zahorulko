@@ -48,7 +48,7 @@ export function applySearchQuery(
     query = query.where('title' satisfies ShopItemSelector, '==', data.name)
   else {
     if (data.type !== undefined)
-      query = query.where('short.type', '==', data.type)
+      query = query.where('type' satisfies ShopItemSelector, '==', data.type)
     if (data.promotion !== undefined)
       query = query.where(
         'promotion' satisfies ShopItemSelector,
