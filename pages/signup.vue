@@ -18,7 +18,7 @@ const errors = reactive({
 type States =
   | TypedObj<'idle'>
   | TypedObj<'loading'>
-  | TypedObj<'loaded'>
+  | TypedObj<'success'>
   | TypedObj<'loaded-error', { message: string }>
 
 const state = ref({ type: 'idle' } as States)
@@ -49,14 +49,15 @@ async function onSubmit() {
     return
   }
 
-  state.value = { type: 'loaded' }
+  state.value = { type: 'success' }
+  credentials.value = { email: '', password: '' }
 }
 
 const userStateMessage = computed(() => {
   if (state.value.type === 'idle') {
     return ''
   }
-  if (state.value.type === 'loaded') {
+  if (state.value.type === 'success') {
     return 'Verification was sent on you email'
   }
   if (state.value.type === 'loading') {
@@ -100,16 +101,13 @@ const userStateMessage = computed(() => {
       <Transition name="info">
         <div
           v-if="state.type !== 'idle'"
-          :class="`bg-secondary-container mx-4  mt-4 rounded-lg p-2 text-center font-serif text-xl font-bold transition-all duration-300 ease-out
-          ${
-            state.type === 'loaded-error'
-              ? 'bg-error-container'
-              : ''
-          } ${
-            state.type === 'loaded'
-              ? 'bg-green-300 text-black dark:bg-green-700 dark:text-white'
-              : ''
-          }`"
+          class="bg-secondary-container mx-4 mt-4 rounded-lg p-2 text-center font-serif text-xl font-bold transition-all duration-300 ease-out"
+          :class="{
+            'bg-error-container':
+              state.type === 'loaded-error',
+            'bg-green-300 text-black dark:bg-green-700 dark:text-white':
+              state.type === 'success',
+          }"
         >
           {{ userStateMessage }}
         </div>

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useServerHead } from '@unhead/vue'
 import { sleep } from '~~/server/utils/helpers/sleep'
 import { TypedObj } from '~~/server/utils/helpers/typedObj'
 
-useServerHead({
+useHead({
   title: 'Sign in',
   meta: [
     { name: 'description', content: 'Sign in to Anci' },
@@ -72,6 +71,7 @@ async function onSubmit() {
   }
 
   state.value = { type: 'success' }
+  credentials.value = { email: '', password: '' }
 }
 
 const userStateMessage = computed(() => {
@@ -131,16 +131,12 @@ const userStateMessage = computed(() => {
       <Transition name="info">
         <div
           v-if="state.type !== 'idle'"
-          :class="`bg-secondary-container mx-4  mt-4 rounded-lg p-2 text-center font-serif text-xl font-bold transition-all duration-300 ease-out
-          ${
-            state.type === 'error'
-              ? 'bg-error-container'
-              : ''
-          } ${
-            state.type === 'success'
-              ? 'bg-green-300 text-black dark:bg-green-700 dark:text-white'
-              : ''
-          }`"
+          class="bg-secondary-container mx-4 mt-4 rounded-lg p-2 text-center font-serif text-xl font-bold transition-all duration-300 ease-out"
+          :class="{
+            'bg-error-container': state.type === 'error',
+            'bg-green-300 text-black dark:bg-green-700 dark:text-white':
+              state.type === 'success',
+          }"
         >
           {{ userStateMessage }}
         </div>

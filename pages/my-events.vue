@@ -43,7 +43,10 @@ const eventLoader = async (start: Dayjs, end: Dayjs) => {
 </script>
 
 <template>
-  <article>
+  <article class="w-full">
+    <TextTitle class="pt-5 pb-3 px-2 sm:px-9 bg-surface5-light dark:bg-surface5-dark">
+      Your events
+    </TextTitle>
     <Calendar
       :data-loader="eventLoader"
       v-slot="{ event, key }"

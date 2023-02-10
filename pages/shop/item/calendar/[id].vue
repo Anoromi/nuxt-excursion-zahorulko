@@ -54,6 +54,10 @@ const calendarLoader = async (start: Dayjs, end: Dayjs) => {
 </script>
 
 <template>
+  <article class="w-full">
+    <TextTitle class="pt-5 pb-3 px-2 sm:px-9 bg-surface5-light dark:bg-surface5-dark">
+      Browse events
+    </TextTitle>
   <Calendar
     :data-loader="calendarLoader"
     v-slot="{ key, event }"
@@ -64,4 +68,5 @@ const calendarLoader = async (start: Dayjs, end: Dayjs) => {
     >
     </ShopCalendarEventCard>
   </Calendar>
+  </article>
 </template>
