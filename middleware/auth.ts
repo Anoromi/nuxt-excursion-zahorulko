@@ -1,5 +1,7 @@
+import { credentialsCookie } from "~~/server/utils/userCookie"
+
 export default defineNuxtRouteMiddleware(async () => {
-  if (useCookie('credentials').value === undefined) {
+  if (useCookie(credentialsCookie).value === undefined) {
     return navigateTo('/login')
   }
 
