@@ -6,4 +6,4 @@ node_modules
 .output
 .env
 dist
-server/utils/bureau-keys.json
+bureau-keys.json
